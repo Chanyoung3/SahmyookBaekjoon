@@ -2,7 +2,7 @@ package q2742;
 
 import java.util.Scanner;
 
-class Main{
+public class Main{
     public static void main(String[] args){
         int n;
         Scanner scan = new Scanner(System.in);
