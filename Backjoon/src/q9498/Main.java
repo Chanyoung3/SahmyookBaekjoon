@@ -3,13 +3,13 @@ package q9498;
 import java.util.Scanner;
 
 public class Main {
-
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-        int score = sc.nextInt();
+		int score = sc.nextInt();
         sc.close();
         
-        if( score >= 90 ){
+        if(score > 100) { System.out.println("잘못된 점수입니다."); }
+        else if( score >= 90 && score <= 100){
             System.out.println("A");
         }
         else if ( score < 90 && score >= 80){
