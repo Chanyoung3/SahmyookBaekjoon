@@ -17,6 +17,6 @@ public class Main {
 		}
 		sc.close();
 		
-		// 미완성
+		// 미완
 	}
 }
