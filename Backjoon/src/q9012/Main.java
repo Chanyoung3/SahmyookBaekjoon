@@ -11,7 +11,7 @@ public class Main {
 		String ps = "";
 		
 		for(int i = 0; i <= in; i++) {
-			int lps = 0, rps = 0, vps = 0;
+			int vps = 0;
 			ps = sc.nextLine();
 			if(ps.equals("")) continue;
 			
@@ -21,10 +21,12 @@ public class Main {
 			else {
 				String[] cps = ps.split("");
 				for(int j = 0; j < cps.length; j++) {
-					if(cps[j].equals("(")) lps++;
-					else rps--;
+					if(cps[j].equals("(")) vps++;
+					else vps--;
+					
+					if ( vps < 0) break;
 				}
-				
+
 				if(vps != 0) System.out.println("NO");
 				else System.out.println("YES");
 			}
