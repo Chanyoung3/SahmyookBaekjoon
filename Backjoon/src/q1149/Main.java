@@ -18,21 +18,25 @@ public class Main {
 		}
 		sc.close();
 		
-		for(int i = 0; i < in; i++) {
+		for(int i = 0; i < in; i++) {			
 			if(arr[i][0] <= arr[i][1]) {
 				if(arr[i][0] <= arr[i][2]) {
 					min += arr[i][0];
+					rgb[i] = arr[i][0];
 				}
 				else {
 					min += arr[i][2];
+					rgb[i] = arr[i][2];
 				}
 			}
 			else {
 				if(arr[i][1] <= arr[i][2]) {
 					min += arr[i][1];
+					rgb[i] = arr[i][1];
 				}
 				else {
 					min += arr[i][2];
+					rgb[i] = arr[i][2];
 				}
 			}
 		}
