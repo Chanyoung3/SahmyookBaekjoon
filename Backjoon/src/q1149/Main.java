@@ -18,7 +18,14 @@ public class Main {
 		}
 		sc.close();
 		
-		for(int i = 0; i < in; i++) {			
+		for(int i = 0; i < in; i++) {
+			if(i > 0) {
+				if(rgb[i] == rgb[i-1]) {
+					i--;
+					continue;
+				}
+			}
+			
 			if(arr[i][0] <= arr[i][1]) {
 				if(arr[i][0] <= arr[i][2]) {
 					min += arr[i][0];
