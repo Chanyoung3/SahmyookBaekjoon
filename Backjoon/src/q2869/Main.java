@@ -10,14 +10,25 @@ public class Main {
 		int down = sc.nextInt();
 		int high = sc.nextInt();
 		sc.close();
-		
-		int cur = up;
-		int cnt = 1;
-		while(cur < high) {
-			cur = cur + (up - down);
-			cnt++;
+
+		int fhigh = high - up;
+		int day = 1;
+		int ud = up - down;
+		if(fhigh == 0){
+			day = 1;
 		}
-		
-		System.out.println(cnt);
+		else if (fhigh < ud) {
+			day += 1;
+		} else {
+			if (fhigh % ud != 0) {
+				day += fhigh / ud + 1;
+			} else {
+				day += fhigh / ud;
+			}
+
+		}
+
+		System.out.println(day);
+
 	}
 }

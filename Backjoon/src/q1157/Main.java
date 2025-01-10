@@ -15,8 +15,16 @@ public class Main {
 		Arrays.sort(s);
 		
 		int cnt = 0;
-		for(int i = 0; i < s.length - 1; i++) {
-			if(s[i] == s[i+1]) cnt++;
+		for(int i = 0; i < s.length; i++) {
+			for (int j = 0; j < i; j++) {
+				if(s[i].equals(s[j])) {
+					break;
+				}
+				else {
+					cnt++;
+				}
+			}
 		}
 	}
 }
+	
