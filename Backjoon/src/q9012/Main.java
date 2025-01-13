@@ -8,12 +8,11 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int in = sc.nextInt();
 		
-		String ps = "";
+		String ps;
 		
-		for(int i = 0; i <= in; i++) {
+		for(int i = 0; i < in; i++) {
 			int vps = 0;
-			ps = sc.nextLine();
-			if(ps.equals("")) continue;
+			ps = sc.next();
 			
 			if(ps.length() % 2 != 0) {
 				System.out.println("NO");
