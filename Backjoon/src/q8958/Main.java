@@ -8,10 +8,9 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int qz = sc.nextInt();
 		
-		for(int i = 0; i <= qz; i++) {
-			String res = sc.nextLine();
+		for(int i = 0; i < qz; i++) {
+			String res = sc.next();
 			String[] arr = res.split("");
-			if(arr[0].equals("")) continue;
 			
 			int score = 0, seq = 0;
 			for(int j = 0; j < arr.length; j++) {

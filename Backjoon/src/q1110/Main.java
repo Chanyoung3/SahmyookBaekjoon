@@ -9,19 +9,19 @@ public class Main {
 		int inum = sc.nextInt();
 		sc.close();
 		
-		int inewn;
+		int plusc;
 		if(inum < 10) {
-			inewn = inum * 10 + inum;
+			plusc = inum * 10 + inum;
 		}
 		else {
- 			inewn = (inum % 10) * 10 + (((inum / 10) + (inum %10)) % 10);
+			plusc = (inum % 10) * 10 + (((inum / 10) + (inum %10)) % 10);
 		}
 		int cnt = 1;
 		
 		while (true) {
-			if( inewn == inum) break;
+			if( plusc == inum ) break;
 			
-			inewn = (inewn % 10) * 10 + (((inewn / 10) + (inewn %10)) % 10);
+			plusc = (plusc % 10) * 10 + (((plusc / 10) + (plusc %10)) % 10);
 			cnt++;
 		}
 		System.out.println(cnt);
