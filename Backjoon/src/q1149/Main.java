@@ -7,47 +7,29 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int in = sc.nextInt();
-		int[][] arr = new int[in][3];
-		int[] rgb = new int[in];
-		int min = 0;
-		
-		for(int i = 0; i < in; i++) {
-			arr[i][0] = sc.nextInt();
-			arr[i][1] = sc.nextInt();
-			arr[i][2] = sc.nextInt();
-		}
-		sc.close();
-		
-		for(int i = 0; i < in; i++) {
-			if(i > 0) {
-				if(rgb[i] == rgb[i-1]) {
-					i--;
-					continue;
-				}
-			}
-			
-			if(arr[i][0] <= arr[i][1]) {
-				if(arr[i][0] <= arr[i][2]) {
-					min += arr[i][0];
-					rgb[i] = arr[i][0];
-				}
+		int[][] rgb = new int[in][3];
+		int total = 0;
+
+		for (int i = 0; i < in; i++) {
+			for (int j = 0; j < 3; j++) {
+				int min = 1000000;
+				if (i == 0)
+					rgb[i][j] = sc.nextInt();
 				else {
-					min += arr[i][2];
-					rgb[i] = arr[i][2];
-				}
-			}
-			else {
-				if(arr[i][1] <= arr[i][2]) {
-					min += arr[i][1];
-					rgb[i] = arr[i][1];
-				}
-				else {
-					min += arr[i][2];
-					rgb[i] = arr[i][2];
+					for (int k = 0; k < 3; k++) {
+						if (j == k)
+							continue;
+						else if (rgb[i - 1][k] < min)
+							min = rgb[i - 1][k];
+					}
+					rgb[i][j] = sc.nextInt() + min;
 				}
 			}
 		}
-		
-		System.out.println(min);
-	}	
+		sc.close();
+
+		total = Math.min(Math.min(rgb[in-1][0], rgb[in-1][1]), rgb[in-1][2]);
+		System.out.println(total);
+
+	}
 }

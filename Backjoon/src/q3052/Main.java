@@ -13,12 +13,9 @@ public class Main {
 		
 		for(int i = 0; i < arr.length; i++) {
 			arr[i] = sc.nextInt();
-		}
-		sc.close();
-		
-		for(int i = 0; i < rem.length; i++) {
 			rem[i] = arr[i] % 42;
 		}
+		sc.close();
 		
 		for(int i = 0; i < rem.length; i++) { 
 			for(int j = 0; j < rem.length; j++) {
