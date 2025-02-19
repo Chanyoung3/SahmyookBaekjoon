@@ -1,52 +1,36 @@
 package q18870;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int in = sc.nextInt();
-		int[] arr = new int[in];
-		int cnt = 0;
-		
-		for(int i = 0; i < in; i++) {
-			arr[i] =sc.nextInt();
-			
-			for(int j = 0; j < i; j++) {
-				if(arr[i] != arr[j]) continue;
-				else {
-					cnt++;
-					break;
-				}
-			}
-		}
-		sc.close();
-		
-		int[] carr = new int[in - cnt];
-		int cr = 0;
-		for(int i = 0 ; i < arr.length; i++) {
-			int df = 0;
-			for(int j = 0; j < i; j++) {
-				if(arr[i] != arr[j]) continue;
-				else { 
-					df++;
-					break; 
-				}
-			}
-			if (df == 0) carr[cr++] = arr[i];
-		}
-		
-		Arrays.sort(carr);
-		for(int i = 0; i < carr.length; i++) {
-			for (int j = 0; j < arr.length; j++) {
-				if(carr[i] == arr[j]) arr[j] = i;
-			}
-		}
-		
-		for(int i : arr) {
-			System.out.print(arr[i] + " ");
-		}
-	}
+        int N = Integer.parseInt(br.readLine());
+        int[] original = new int[N]; // 원본 배열
+        int[] sorted; // 정렬 후 중복 제거된 배열
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < N; i++) {
+            original[i] = Integer.parseInt(st.nextToken());
+        }
+
+        // 1. 원본 배열을 정렬한 후 중복 제거
+        sorted = Arrays.stream(original).distinct().sorted().toArray();
+
+        // 2. 값 → 압축된 좌표 매핑
+        Map<Integer, Integer> rankMap = new HashMap<>();
+        for (int i = 0; i < sorted.length; i++) {
+            rankMap.put(sorted[i], i);
+        }
+        
+        // 3. 원본 배열에 대해 압축된 좌표 출력
+        for (int i = 0; i < N; i++) {
+            bw.write(rankMap.get(original[i]) + " ");
+        }
+        bw.flush();
+        bw.close();
+    }
 }
